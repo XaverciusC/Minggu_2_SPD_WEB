@@ -10,18 +10,17 @@
 <body>
 
     <div id="vapp">
-        
-        <section1>  
-            <div class="overview">
-              <div class="foto">
-                  <gambar-display v-show="display == 'gambar_1'"><img src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024" ></gambar-display>
-                  <gambar-display v-show="display == 'gambar_2'" ><img src="https://thumb.viva.co.id/media/frontend/thumbs3/2021/06/28/60d9fc9802ad9-sekelompok-mahasiswa-berdemonstrasi-di-universitas-mataram-nusa-tenggara-barat_1265_711.jpg" ></gambar-display>
-              </div>
-            </div>  
-        </section1>
 
-        <section2>
-          <div class="overview">
+        <section>  
+            <div class="beranda">
+              <div class="foto">
+                  <gambar-display v-show="disp == 'pict_2'"><img src="https://mangrovejakarta.id/wp-content/uploads/2022/07/Picture1.png" ></gambar-display>
+                  <gambar-display v-show="disp == 'pict_1'" ><img src="https://www.agronet.co.id/files/media/news/images/645x372/-_170830012339-601.jpg" ></gambar-display>
+                  <ganti-gambar v-on:toggle="toggleb"></ganti-gambar>
+                </div>
+            </div>  
+       
+          <div class="beranda">
             <div class="foto">
               <gambar-display v-if="display === 'gambar_1'">
                 <img src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024">
@@ -33,7 +32,7 @@
               <ganti-gambar v-on:toggle="toggleBox"></ganti-gambar>
             </div>
           </div>
-        </section2>
+        </section>
        
       </div>
         
@@ -50,6 +49,7 @@
             el: '#vapp',
             data: { 
              display: 'gambar_1',
+             disp: 'pict_1'
 
              
             },
@@ -57,7 +57,9 @@
               toggleBox() {
                 this.display == 'gambar_1' ? this.display = 'gambar_2' : this.display = 'gambar_1'
               },
-
+              toggleb() {
+                this.disp == 'pict_1' ? this.disp = 'pict_2' : this.disp = 'pict_1'
+              },
               
             }
           })
