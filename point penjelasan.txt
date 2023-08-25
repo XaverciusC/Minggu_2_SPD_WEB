@@ -1,6 +1,6 @@
 1. binding satu arah  + method counter
 2. binding dua arah input text (v-model)
-3. directif v-if v-for v-show ganti gambar 
-4. v-for untuk menu
+3. directif v-show v-if  ganti gambar 
+4. directif v-for untuk menu
 5. API map
 
