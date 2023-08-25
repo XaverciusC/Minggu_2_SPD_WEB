@@ -14,22 +14,22 @@
             <div class="overview">
                 <img   src="https://cdn-icons-png.flaticon.com/128/10769/10769433.png" >
                 <div class="overview-isi">
-                    <h2>Kinerja</h2>
-                    <p>Lorem ipsum dolor sit.</p>
-                    <button class="button">Periksa</button>
+                    <h2>{{judul}}</h2>
+                    <p>{{isi}}</p>
+                    <input type="text" v-model:value="isi">
                 </div>
             </div>  
         </section>
     </div>
-    
+
     <script>
     
         const vueApp = new Vue({
             el: '#vapp',
             data: { 
 
-             judul_artikel : '#########',
-             artikel: "#########"
+             judul : 'Judul',
+             isi: 'Isi bagian'
              
             },
 
