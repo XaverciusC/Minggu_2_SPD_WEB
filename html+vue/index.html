@@ -25,8 +25,8 @@
         <section>
             <div class="beranda">
                 <div class="foto">
-                    <gambar-display clas ="foto" v-show="display == 'gambar_1'" v-on:toggle="toggleBox()"><img style="text-align: left;" src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024" ></gambar-display>
-                    <gambar-display v-show="display == 'gambar_2'" v-on:toggle="toggleBox()"><img src="https://thumb.viva.co.id/media/frontend/thumbs3/2021/06/28/60d9fc9802ad9-sekelompok-mahasiswa-berdemonstrasi-di-universitas-mataram-nusa-tenggara-barat_1265_711.jpg" ></gambar-display>
+                    <gambar-display v-show="display == 'gambar_1'"><img src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024" ></gambar-display>
+                    <gambar-display v-show="display == 'gambar_2'" ><img src="https://thumb.viva.co.id/media/frontend/thumbs3/2021/06/28/60d9fc9802ad9-sekelompok-mahasiswa-berdemonstrasi-di-universitas-mataram-nusa-tenggara-barat_1265_711.jpg" ></gambar-display>
                     
                     <ganti-gambar v-on:toggle="toggleBox()"></ganti-gambar >
                 </div>
@@ -34,7 +34,6 @@
                     <h1>{{judul_artikel}}</h1>
                     <h3>
                        {{artikel}}
-                    
                     </h3>
                    
                     <input type="text" v-model:value="artikel">
@@ -60,7 +59,7 @@
                 <div class="overview-isi">
                     <h2>Like's</h2>
                     <h3 id="jumlah_like">{{ count }}</h3>
-                    <button  class="button" @click="count++">Sukai</button>
+                    <button  class="button" @click="tambah">Sukai</button>
                 </div>
             </div>
 
@@ -99,16 +98,20 @@
             el: '#vapp',
             data: { 
              display: 'gambar_1',
-             judul_artikel : 'Artikel 1',
-             artikel: "Isi Artikel",
+             judul_artikel : 'Judul pertama',
+             artikel: "Ini isi artikel",
              agung: 'halooo',
-             count: 0
+             count: 40
              
             },
             methods: {
               toggleBox() {
                 this.display == 'gambar_1' ? this.display = 'gambar_2' : this.display = 'gambar_1'
               },
+
+              tambah: function(){
+                return this.count++
+              }
               
             }
           })
