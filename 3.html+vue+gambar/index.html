@@ -14,24 +14,26 @@
         <section>  
             <div class="beranda">
               <div class="foto">
-                  <gambar-display v-show="disp == 'pict_2'">
-                    <img src="https://mangrovejakarta.id/wp-content/uploads/2022/07/Picture1.png" ></gambar-display>
-                  <gambar-display v-show="disp == 'pict_1'" >
-                    <img src="https://www.agronet.co.id/files/media/news/images/645x372/-_170830012339-601.jpg" ></gambar-display>
-                  <ganti-gambar v-on:toggle="toggleb"></ganti-gambar>
+                  <gambar-display v-show="display_show == 'gambar_show_2'">
+                    <img src="https://mangrovejakarta.id/wp-content/uploads/2022/07/Picture1.png" >
+                  </gambar-display>
+                  <gambar-display v-show="display_show == 'gambar_show_1'" >
+                    <img src="https://www.agronet.co.id/files/media/news/images/645x372/-_170830012339-601.jpg" >
+                  </gambar-display>
+                  <ganti-gambar v-on:toggle="toggleBoxShow"></ganti-gambar>
                 </div>
             </div>  
        
           <div class="beranda">
             <div class="foto">
-              <gambar-display v-if="display === 'gambar_1'">
+              <gambar-display v-if="display_if === 'gambar_if_1'">
                 <img src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024">
               </gambar-display>
-              <gambar-display v-if="display === 'gambar_2'">
+              <gambar-display v-else>
                 <img src="https://th.bing.com/th/id/OIP.23S2u0_QrXgF-AYYmeSCDwHaEK?pid=ImgDet&rs=1">
               </gambar-display>
               
-              <ganti-gambar v-on:toggle="toggleBox"></ganti-gambar>
+              <ganti-gambar v-on:toggle="toggleBoxIf"></ganti-gambar>
             </div>
           </div>
         </section>
@@ -41,7 +43,6 @@
 
     <script>
 
-
         Vue.component('GantiGambar', {
             template: "<button class=\"button\" v-on:click=\"$emit('toggle')\">Ganti Gambar</button>"
         })
@@ -50,19 +51,21 @@
         const vueApp = new Vue({
             el: '#vapp',
             data: { 
-             display: 'gambar_1',
-             disp: 'pict_1'
-
-             
+              display_show: 'gambar_show_1',
+              display_if: 'gambar_if_1'
+              
             },
             methods: {
-              toggleBox() {
-                this.display == 'gambar_1' ? this.display = 'gambar_2' : this.display = 'gambar_1'
+              toggleBoxShow() {
+                this.display_show == 'gambar_show_1' ? 
+                this.display_show = 'gambar_show_2' : 
+                this.display_show = 'gambar_show_1'
               },
-              toggleb() {
-                this.disp == 'pict_1' ? this.disp = 'pict_2' : this.disp = 'pict_1'
-              },
-              
+              toggleBoxIf() {
+                this.display_if == 'gambar_if_1' ? 
+                this.display_if = 'gambar_if_2' : 
+                this.display_if = 'gambar_if_1'
+              }     
             }
           })
     </script>
