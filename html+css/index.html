@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sekolah Pemirintahan Desa</title>
+</head>
+<body>
+    <header id="header" role="banner">
+        <div class="logo"><img src="https://sposindonesia.org/wp-content/uploads/2019/11/logo-partner-05.png" /></div>
+
+        <nav class="menu">
+        <ul>
+            <li><a href="#" title="Beranda">Beranda</a></li>
+            <li><a href="#" title="Profil">Profil</a></li>
+            <li><a href="#" title="Pemerintahan">Pemerintahan</a></li>
+            <li><a href="#" title="Kinerja">Kinerja</a></li>
+        </ul>
+        </nav>
+    </header>  
+    
+    <section>
+        <div class="beranda">
+            <div class="foto">
+                <img style="text-align: left;" src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024" >
+            </div>
+            <div class="konten-bernda">
+                <h1>Judul Artikel</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                    Quas at nostrum voluptatibus dolorum adipisci, eius ipsum, accusamus sit est itaque beatae 
+                    quasi molestias aperiam illo laboriosam porro impedit facere aut! Eos minus id ad 
+                    eveniet quidem laborum non veniam pariatur atque molestias. Perspiciatis voluptates illo molestias, sed ut voluptatem ipsum!
+                
+                </p>
+                <ul>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                    <li>Lorem ipsum dolor sit amet.</li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </section>
+
+    <section class="list-halaman">
+        <div class="halaman"><a><h2>Profil</h2></a></div>
+        <div class="halaman"><a><h2>Pemerintahan</h2></a></div>
+        <div class="halaman"><a><h2>Kinerja</h2></a></div>
+        <div class="halaman"><a><h2>Kinerja</h2></a></div>
+    </section>
+
+    <h2 style="margin-left: 50px ;">Overview</h2>
+    <section class="list-overview">
+        
+        <div class="overview">
+            <img src="https://cdn-icons-png.flaticon.com/128/1029/1029183.png" >
+            <div class="overview-isi">
+                <h2>Like's</h2>
+                <h3 id="jumlah_like">245</h3>
+                <button  type="button" class="button-like" onclick="tambah()">Sukai</button>
+            </div>
+        </div>
+
+        <div class="overview">
+            <img   src="https://cdn-icons-png.flaticon.com/128/10769/10769433.png" >
+            <div class="overview-isi">
+                <h2>Kinerja</h2>
+                <p>Lorem ipsum dolor sit.</p>
+                <button class="button">Periksa</button>
+            </div>
+        </div>
+        
+        <div class="overview">
+            <img  src="https://cdn-icons-png.flaticon.com/128/2196/2196740.png" >
+            <div class="overview-isi">
+                <h2>Kunjungan</h2>
+                <p>Lorem ipsum dolor sit.</p>
+                <button class="button">Periksa</button>
+            </div>
+        </div>
+    </section>
+        
+    <footer>
+        <h3 style="text-align: center; color: #fff;">Sekolah Pemerintah Desa @2023</h3>
+    </footer>
+</body>
+
+<script>
+    function tambah() {
+        var element = document.getElementById('jumlah_like').innerHTML;
+        var total = Number(element) + 1;
+        document.getElementById('jumlah_like').innerHTML = total;
+    }
+</script>
+</html>
