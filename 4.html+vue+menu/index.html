@@ -8,72 +8,39 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    <header id="header" role="banner">
-        
-    </header>  
+      
     
     <div id="vapp">
-        <section>
-            <div class="beranda">
-                <div class="foto">
-                    <gambar-display v-show="display == 'gambar_1'"><img src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024" ></gambar-display>
-                    <gambar-display v-show="display == 'gambar_2'" ><img src="https://thumb.viva.co.id/media/frontend/thumbs3/2021/06/28/60d9fc9802ad9-sekelompok-mahasiswa-berdemonstrasi-di-universitas-mataram-nusa-tenggara-barat_1265_711.jpg" ></gambar-display>
-                    
-                    <ganti-gambar v-on:toggle="toggleBox()"></ganti-gambar >
-                </div>
-                <div class="konten-beranda">
-                    <h1>{{judul_artikel}}</h1>
-                    <h3>
-                       {{artikel}}
-                    </h3>
-                   
-                    <input type="text" v-model:value="artikel">
-                </div>
+        <header id="header" role="banner">
+            <div class="logo"><img src="https://sposindonesia.org/wp-content/uploads/2019/11/logo-partner-05.png" /></div>
+    
+            <nav class="menu">
+            <ul>
+                <li v-for="item in list_menu"><a v-text="item.menu"></a></li>
+            </ul>
                 
-            </div>
-            
-            
-        </section>
-
+            </ul>
+            </nav>
+        </header>
         
+    </div>   
 
     <script>
     
-
-        Vue.component('GantiGambar', {
-            template: "<button class=\"button\" v-on:click=\"$emit('toggle')\">Ganti Gambar</button>"
-        })
-
-
         const vueApp = new Vue({
+             
             el: '#vapp',
             data: { 
-             display: 'gambar_1',
-             judul_artikel : 'Judul pertama',
-             artikel: "Ini isi artikel",
-             agung: 'halooo',
-             count: 40
-             
+                list_menu:[
+                    { menu: 'Beranda' },
+                    { menu: 'Profil'},
+                    { menu: 'Program Kerja'},
+                    { menu: 'Kinerja'}
+               ],
             },
-            methods: {
-              toggleBox() {
-                this.display == 'gambar_1' ? this.display = 'gambar_2' : this.display = 'gambar_1'
-              },
-
-              tambah: function(){
-                return this.count++
-              }
-              
-            }
+          
           })
     </script>
 </body>
 
-<script>
-    function tambah() {
-        var element = document.getElementById('jumlah_like').innerHTML;
-        var total = Number(element) + 1;
-        document.getElementById('jumlah_like').innerHTML = total;
-    }
-</script>
 </html>
