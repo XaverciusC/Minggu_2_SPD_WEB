@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sekolah Pemirintahan Desa</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+    <style type="text/css">
+        .box {
+          height: 200px;
+          width: 200px;
+          text-align: center;
+        }
+        .red {
+          background-color: red;
+        }
+        .green {
+          background-color: green;
+        }
+    </style>
+
+    <!-- leaflet css  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <!-- leaflet js  -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+    <style>
+        /* ukuran peta */
+        #mapid {
+            height: 450px;
+        }
+    </style>
+
+</head>
+<body>
+    <header id="header" role="banner">
+        <div class="logo"><img src="https://sposindonesia.org/wp-content/uploads/2019/11/logo-partner-05.png" /></div>
+
+        <nav class="menu">
+        <ul>
+            <li><a href="#" title="Beranda">Beranda</a></li>
+            <li><a href="#" title="Profil">Profil</a></li>
+            <li><a href="#" title="Pemerintahan">Pemerintahan</a></li>
+            <li><a href="#" title="Kinerja">Kinerja</a></li>
+        </ul>
+        </nav>
+    </header>  
+    
+    <section>
+        <div class="beranda">
+            <!-- peta akan ditampilkan dengan id = mapid -->
+            <div id="mapid"></div>  
+
+        </div>
+        
+    </section>
+
+    <div id="vapp">
+        <p>{{ agung }}</p>
+        <colored-box class="red" v-show="display == 'redbox'" v-on:toggle="toggleBox()"></colored-box>
+        <colored-box class="green" v-show="display == 'greenbox'" v-on:toggle="toggleBox()"></colored-box>
+        
+        
+    
+
+    <h2 style="margin-left: 50px ;">Overview</h2>
+    <section class="list-overview">
+        
+        <div class="overview">       
+            <img src="https://cdn-icons-png.flaticon.com/128/1029/1029183.png" >
+            <div class="overview-isi">
+                <h2>Like's</h2>
+                <h3 id="jumlah_like">{{ count }}</h3>
+                <button  class="button" @click="count++">Sukai</button>
+            </div>
+        </div>
+
+        <div class="overview">
+            <icon-display v-show="display == 'icon1'" v-on:toggle="toggleBox1()"><img src="https://cdn-icons-png.flaticon.com/128/1029/1029183.png" ></icon-display>
+            <icon-display v-show="display == 'icon2'" v-on:toggle="toggleBox1()"><img src="https://cdn-icons-png.flaticon.com/128/10769/10769433.png" ></icon-display>
+            <div class="overview-isi">
+                <h2>Kinerja</h2>
+                <p>Lorem ipsum dolor sit.</p>
+                <ganti-icon  v-on:toggle="toggleBox1()"></ganti-icon >
+            </div>
+        </div>
+        
+        <div class="overview">
+            <img  src="https://cdn-icons-png.flaticon.com/128/2196/2196740.png" >
+            <div class="overview-isi">
+                <h2>Pengaduan</h2>
+                <p>{{ message }}</p>
+                <input type="text" v-model:value="message">
+            </div>
+        </div>
+    </section>
+    
+    </div>
+
+    <footer>
+        <h3 style="text-align: center; color: #fff;">Sekolah Pemerintah Desa @2023</h3>
+    </footer>
+
+    <script>
+        var mymap = L.map('mapid').setView([-6.559929217078122, 106.73177724983636], 15);
+
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 20,
+                attribution: '© OpenStreetMap'
+            }).addTo(mymap);
+
+
+            var marker = L.marker([-6.559929217078122, 106.73177724983636]).addTo(mymap);
+            
+            var polygon = L.polygon([
+                [-6.544713512976446, 106.71416875244464],
+                [-6.5555854912124065, 106.7157137047864],
+                [-6.562875979144082, 106.72468301143721],
+                [-6.5571629742512885, 106.73485394768714],
+                [-6.550000308450689, 106.72433968869458]
+            ]).addTo(mymap);
+
+            marker.bindPopup("<b>Jalan Babakan Raya</b>").openPopup();
+    </script>
+
+    <script>
+        Vue.component('ColoredBox', {
+            template: "<div class=\"box\"><button v-on:click=\"$emit('toggle')\">Toggle Now</button></div>"
+        })
+
+        Vue.component('GantiIcon', {
+            template: "<button class=\"button\" v-on:click=\"$emit('toggle')\">Toggle Now</button>"
+        })
+
+
+        const vueApp = new Vue({
+            el: '#vapp',
+            data: { 
+             display: 'redbox',
+             display: 'icon1',
+             agung: 'halooo',
+             count: 0,
+             message: "Adukan disini!"
+            },
+            methods: {
+              toggleBox() {
+                this.display == 'redbox' ? this.display = 'greenbox' : this.display = 'redbox'
+              },
+              toggleBox1() {
+                this.display == 'icon1' ? this.display = 'icon2' : this.display = 'icon1'
+              }
+            }
+          })
+    </script>
+
+</body>
+
+<script>
+    function tambah() {
+        var element = document.getElementById('jumlah_like').innerHTML;
+        var total = Number(element) + 1;
+        document.getElementById('jumlah_like').innerHTML = total;
+    }
+</script>
+</html>

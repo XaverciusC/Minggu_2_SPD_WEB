@@ -1,0 +1,147 @@
+#header {
+    box-sizing: border-box;
+    background: #071d46;
+    padding: 10px 10px;
+    display: table;
+    width: 100%;
+    height: 80px;
+  }
+  
+  .logo img{
+      text-align: center;
+      height: 60px;
+      color: #fff;
+  }
+  
+  .logo, .menu {
+    vertical-align: middle;
+    display: table-cell;
+  }
+  
+  .menu ul {
+    text-align: right;
+  }
+  
+  .menu ul li {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .menu ul li a {
+    padding: 10px 10px;
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    }
+    
+.menu ul li a:hover {
+    color: #34495E;
+    }
+
+
+section {
+    padding: 10px 30px;
+    margin: 10px 0px;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.beranda{
+    border-width: thick; 
+    border-style: solid;  
+    border-color: orange;
+    border-radius: 40px;
+    padding: 10px 10px;
+  
+}
+
+.foto, .konten-beranda{
+    vertical-align: middle;
+    display: table-cell;
+    margin: 30px;
+    padding: 30px;
+
+}
+
+.beranda img{
+    height: 350px;
+}
+
+
+.list-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    row-gap: 50px;
+    justify-content: space-center;
+    align-content: center;
+    
+  }
+.overview{
+    
+    border-width: thick; 
+    border-style: solid;  
+    border-color: orange;
+    border-radius: 40px;
+    height: 140px;
+    padding: 40px 0px;
+    display: table;
+}
+.overview img, .overview-isi{
+    
+    vertical-align: middle;
+    display: table-cell;
+    padding: 20px;
+}
+
+.overview img{
+    margin: auto;
+    height: 60px;
+}
+
+.overview div{
+    width: 160px;
+}
+
+.button-like {
+    background-color: #f85246;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .button-like:hover{
+    background-color: #f17c74;
+  }
+
+  .button {
+    background-color: #2db63f; /* Green */
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  .button:hover{
+    background-color: #73e282;
+  }
+footer {
+    width: 100%;
+    height: 50px; 
+    background: #071d46;
+    display: table;
+    vertical-align: middle;
+}
