@@ -14,8 +14,10 @@
         <section>  
             <div class="beranda">
               <div class="foto">
-                  <gambar-display v-show="disp == 'pict_2'"><img src="https://mangrovejakarta.id/wp-content/uploads/2022/07/Picture1.png" ></gambar-display>
-                  <gambar-display v-show="disp == 'pict_1'" ><img src="https://www.agronet.co.id/files/media/news/images/645x372/-_170830012339-601.jpg" ></gambar-display>
+                  <gambar-display v-show="disp == 'pict_2'">
+                    <img src="https://mangrovejakarta.id/wp-content/uploads/2022/07/Picture1.png" ></gambar-display>
+                  <gambar-display v-show="disp == 'pict_1'" >
+                    <img src="https://www.agronet.co.id/files/media/news/images/645x372/-_170830012339-601.jpg" ></gambar-display>
                   <ganti-gambar v-on:toggle="toggleb"></ganti-gambar>
                 </div>
             </div>  
@@ -26,7 +28,7 @@
                 <img src="https://cdn.medcom.id/dynamic/content/2022/09/06/1473478/ITwmsCRkU3.JPG?w=1024">
               </gambar-display>
               <gambar-display v-if="display === 'gambar_2'">
-                <img src="https://thumb.viva.co.id/media/frontend/thumbs3/2021/06/28/60d9fc9802ad9-sekelompok-mahasiswa-berdemonstrasi-di-universitas-mataram-nusa-tenggara-barat_1265_711.jpg">
+                <img src="https://th.bing.com/th/id/OIP.23S2u0_QrXgF-AYYmeSCDwHaEK?pid=ImgDet&rs=1">
               </gambar-display>
               
               <ganti-gambar v-on:toggle="toggleBox"></ganti-gambar>
