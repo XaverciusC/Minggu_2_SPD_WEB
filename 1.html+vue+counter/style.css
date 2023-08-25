@@ -31,11 +31,13 @@ section {
   
   vertical-align: middle;
   display: table-cell;
+  padding: 20px;
 }
 
 .overview img{
   margin: auto;
   height: 160px;
+  
 }
 
 .overview div{
